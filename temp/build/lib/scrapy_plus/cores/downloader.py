@@ -1,7 +1,7 @@
 """下载器组件"""
 import requests
 
-from scrapy_plus import Response
+from scrapy_plus.https.response import Response
 from scrapy_plus.utils.log import logger
 
 

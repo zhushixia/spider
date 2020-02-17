@@ -1,7 +1,7 @@
 from scrapy_plus import Spider
 
 # 继承框架的爬虫基类
-from scrapy_plus import Request
+from scrapy_plus.https.request import Request
 
 
 #https://movie.douban.com/j/search_subjects?type=movie&tag=热门&page_limit=50&page_start=0

@@ -1,5 +1,5 @@
 """爬虫组件封装"""
-from scrapy_plus.item import Item
+from scrapy_plus import Item
 from scrapy_plus.https.request import Request
 
 

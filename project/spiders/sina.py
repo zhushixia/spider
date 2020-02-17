@@ -3,9 +3,9 @@ import time
 
 import js2py
 
-from scrapy_plus import Item
-from scrapy_plus import Request
-from scrapy_plus import Spider
+from scrapy_plus.item import Item
+from scrapy_plus.https.request import Request
+from scrapy_plus.cores.spider import Spider
 
 
 class SinaGunDong(Spider):
