@@ -28,6 +28,7 @@ scrapy_plus/middlewares/spider_middlewares.py
 scrapy_plus/utils/__init__.py
 scrapy_plus/utils/log.py
 scrapy_plus/utils/queue.py
+scrapy_plus/utils/redis_hash.py
 scrapy_plus/utils/set.py
 scrapy_plus/utils/stats_collector.py
 scrapy_plus/utils/test.py

@@ -2,6 +2,7 @@
 import redis
 
 from scrapy_plus.conf import settings
+from settings import REDIS_SET_NAME, REDIS_SET_HOST, REDIS_SET_DB, REDIS_SET_PORT
 
 
 class BaseFilterContainer(object):
@@ -34,18 +35,16 @@ class NoramlFilterContainer(BaseFilterContainer):
 
 class RedisFilterContainer(BaseFilterContainer):
 
-    REDIS_SET_NAME = settings.REDIS_SET_NAME
-    REDIS_SET_HOST = settings.REDIS_SET_HOST
-    REDIS_SET_PORT = settings.REDIS_SET_PORT
-    REDIS_SET_DB = settings.REDIS_SET_DB
-
     def __init__(self):
-        self._redis = redis.StrictRedis(host=self.REDIS_SET_HOST, port=self.REDIS_SET_PORT ,db=self.REDIS_SET_DB)
-        self._name = self.REDIS_SET_NAME
+        self._redis = redis.StrictRedis(host=REDIS_SET_HOST, port=REDIS_SET_PORT ,db=REDIS_SET_DB)
+        self._name = REDIS_SET_NAME
 
     def add_fp(self, fp):
         '''往去重容器添加一个指纹'''
         self._redis.sadd(self._name, fp)
+
+    def pop(self, fp):
+        self._redis.srem(self._name, fp)
 
     def exists(self, fp):
         '''判断指纹是否在去重容器中'''
