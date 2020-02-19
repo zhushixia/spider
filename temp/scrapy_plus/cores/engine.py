@@ -137,6 +137,7 @@ class Engine(object):
         return  instance
 
     def _callback(self, temp):
+
         '''执行新的请求的回调函数，实现循环'''
         if self.running is True:  # 如果还没满足退出条件，那么继续添加新任务，否则不继续添加，终止回调函数，达到退出循环的目的
             self.pool.apply_async(self._execute_request_response_item, callback=self._callback)
